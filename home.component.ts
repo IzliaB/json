@@ -34,7 +34,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   encasa: string[] = [];
   clinica: string[] = [];
   virtual!: any;
-  prueba!: any
+  prueba!: any;
+  serviceLimpioClinic!: any[];
+  serviceLimpioAtHome!: any[];
+  serviceLimpioVirtual!: any[];
 
   constructor(
     private bookingService: BookingService,
@@ -98,7 +101,16 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.encasa = res.affiliate.groupedServices.atHome.map(service => service.service.name.es)
         this.clinica = res.affiliate.groupedServices.clinic.map(service => service.service.name.es)
         //console.log('clinica', this.clinica);
-        console.log(this.virtual, this.encasa, this.clinica);
+
+        this.serviceLimpioClinic = Array.from(new Set(this.clinica))
+        console.log('clean', this.serviceLimpioClinic)
+
+        this.serviceLimpioAtHome = Array.from(new Set(this.encasa))
+        console.log('clean', this.serviceLimpioAtHome)
+
+        this.serviceLimpioVirtual = Array.from(new Set(this.virtual))
+        console.log('clean', this.serviceLimpioVirtual)
+        //console.log(this.virtual, this.encasa, this.clinica);
       })
   }
 
@@ -109,15 +121,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.bookingService.bookingModel.type = op;
     switch (op) {
       case "telemedicina":
-        this.groupedServices = this.virtual;
+        this.groupedServices = this.serviceLimpioVirtual;
         break;
       case "athome":
-        this.groupedServices = this.encasa;
+        this.groupedServices = this.serviceLimpioAtHome;
         // this.afilliate.affiliate.groupedServices.atHome;
         break;
       case "atclinic":
         this.groupedServices = [
-          ...this.clinica,
+          ...this.serviceLimpioClinic,
         ];
         console.log("atclinic");
         // this.afilliate.affiliate.groupedServices.clinic
