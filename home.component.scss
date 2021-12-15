@@ -1,0 +1,53 @@
+@import "../../../shared/styles/colors.scss";
+
+.titleContainer {
+    margin: auto;
+    max-width: 620px;
+}
+
+.ButtonContainer {
+    display: inline-block;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid $primary-lighter-color;
+    cursor: pointer;
+}
+
+.Fill {
+    flex: 1;
+}
+
+.Button {
+    color: #fafafa;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    width: 200px;
+    overflow: hidden;
+    &.active {
+        background-color: transparentize($color: $primary-lighter-color, $amount: 0.8);
+    }
+}
+
+.mat-chip {
+    background-color: transparentize($color: $primary-lighter-color, $amount: 0.8);
+    border: 1px solid $primary-lighter-color;
+    color: $white;
+    border-radius: 5px;
+}
+
+.serviceIcon {
+    width: 14px;
+}
+
+.remove {
+    color: $white !important;
+    opacity: 0.6 !important;
+}
+
+.ButtonNext {
+    min-width: 200px;
+    min-height: 40px;
+    border-radius: 8px;
+}

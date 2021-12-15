@@ -1,0 +1,24 @@
+::ng-deep {
+    .DialogContainer {
+        min-width: 24rem;
+        max-width: 25rem !important;
+    }
+}
+
+.closeButton {
+    position: relative;
+    height: 1px;
+    display: flex;
+    justify-content: end;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+.serviceContainer {
+    max-height: 15rem;
+    overflow: auto;
+}
+
+.ButtonNext {
+    padding: 0 60px;
+}

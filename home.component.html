@@ -1,0 +1,50 @@
+<app-header [help]="true"></app-header>
+
+<app-doctor-information [doctorId]="doctorId" [animate]="true"></app-doctor-information>
+
+<div class="titleContainer">
+    <h3 class="mt-4 whiteText">Selecciona la modalidad de la cita:</h3>
+</div>
+
+<section class="container-fluid">
+    <div class="col text-center">
+        <div class="ButtonContainer">
+            <button mat-stroked-button color="primary" class="Button" [ngClass]="{'active':selectedType('telemedicina')}" (click)="onChange('telemedicina')">Video
+                Consulta</button>
+            <button mat-stroked-button color="primary" class="Button mx-1" [ngClass]="{'active':selectedType('atclinic')}" (click)="onChange('atclinic')">En
+                consultorio</button>
+            <button mat-stroked-button color="primary" class="Button" [ngClass]="{'active':selectedType('athome')}" (click)="onChange('athome')">A domicilio</button>
+        </div>
+    </div>
+</section>
+<div class="titleContainer">
+    <h3 class="mt-4 whiteText">Selecciona el servicio:</h3>
+</div>
+
+<section class="container-fluid">
+    <div class="col text-center">
+        <div class="ButtonContainer titleContainer text-start w-100" (click)="openServiceModal()">
+            <div class="d-flex">
+                <div class="Fill">
+                    <mat-chip-list>
+                        <mat-chip color="accent" *ngFor="let service of services.value" [selectable]="true" [removable]="true" (removed)="removeService(service)">
+                            <mat-chip color="accent" *ngFor="let service of services.value" [selectable]="true" [removable]="true" (removed)="removeService(service)" class="me-1 mb-1 fw-normal">
+                                {{service}}
+                                <button matChipRemove class="remove">
+                                <mat-icon>clear</mat-icon>
+                            </button>
+                            </mat-chip>
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+                <div class="IconContainer my-auto whiteText">
+                    <mat-icon svgIcon="plus" class="serviceIcon"></mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="w-100 text-center my-4">
+    <button mat-raised-button color="accent" class="ButtonNext my-4" (click)="onClickNext()"> Buscar Cita</button>
+</div>
