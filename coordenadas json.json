@@ -1,0 +1,29 @@
+{
+    "room": "200",
+    "floor": 2,
+    "schedules": [{
+        "days": [
+            "MO",
+            "TU",
+            "FR",
+            "TH",
+            "WE"
+        ],
+        "_id": "5fadd3c766c0b611da6950d5",
+        "initialTimeStr": "07:00 am",
+        "finalTimeStr": "04:00 pm",
+        "initialTime": "2020-11-12T13:00:00.000Z",
+        "finalTime": "2020-11-12T22:00:00.000Z"
+    }],
+    "place": {
+        "loc": {
+            "type": "Point",
+            "coordinates": [-88.0351328,
+                15.4876832
+            ]
+        },
+        "_id": "5e3b04a28f214f01e2be43a9",
+        "name": "Hospital Cemesa",
+        "address": "21 Calle, Colonia Altamira, San Pedro Sula 21104, Sector 3 Sur-Oeste, San Pedro Sula, San Pedro Sula, Departamento de Cortés, Honduras"
+    }
+}
